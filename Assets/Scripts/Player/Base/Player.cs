@@ -63,7 +63,7 @@ public class Player : MonoBehaviour, IDamageable, IInputable
         State nCurState = machine.curState;
         if(nCurState != inAir && !OnGround())
         {
-            if(nCurState != jump)
+            if(nCurState != jump && nCurState != dash)
                 machine.ChangeState(inAir);
         }
         //machine.globalState.FrameUpdate();

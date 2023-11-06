@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dash : State
+public class Dash : Movement
 {
     float time;
     float force;
@@ -31,7 +31,6 @@ public class Dash : State
 
     public override void TransitionCheck()
     {
-        
         if(force < 2f)
             machine.ChangeState(player.idle);
     }

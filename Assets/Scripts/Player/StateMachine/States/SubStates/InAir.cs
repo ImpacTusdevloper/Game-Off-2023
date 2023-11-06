@@ -21,15 +21,8 @@ public class InAir : State
 
     public override void TransitionCheck()
     {
-        if(player.IsShiftClicked())
-        {
-            machine.ChangeState(player.dash);
-        }
-        else if(player.IsSpacePressed() && machine.curState != player.jump)
-        {
-            machine.ChangeState(player.jump);
-        }
-        else if(player.OnGround())
+        base.TransitionCheck();
+        if(player.OnGround())
         {
             rb.drag = player.rbDrag;
             machine.ChangeState(player.idle);

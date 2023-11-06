@@ -13,15 +13,9 @@ public class Idle : State
 
     public override void TransitionCheck()
     {
-        if(player.IsShiftClicked())
-        {
-            machine.ChangeState(player.dash);
-        }
-        else if(player.IsSpacePressed() && machine.curState != player.jump)
-        {
-            machine.ChangeState(player.jump);
-        }
-        else if(player.IsMoving())
+        base.TransitionCheck();
+        
+        if(player.IsMoving())
         {
             if(player.IsShiftHold())
                 machine.ChangeState(player.run);

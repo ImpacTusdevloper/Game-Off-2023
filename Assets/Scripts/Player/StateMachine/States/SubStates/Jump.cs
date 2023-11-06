@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jump : State
+public class Jump : Air
 {
     float time;
     float force;
 
     public Jump(Player _player, StateMachine _machine) : base(_player, _machine)
     {
-
+        
     }
 
     public override void EnterState()
@@ -35,7 +35,7 @@ public class Jump : State
         {
             machine.ChangeState(player.dash);
         }
-        if(force < 2f)
+        else if(force < 2f)
             machine.ChangeState(player.inAir);
     }
 }

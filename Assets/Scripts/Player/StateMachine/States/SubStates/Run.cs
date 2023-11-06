@@ -17,15 +17,8 @@ public class Run : State
 
     public override void TransitionCheck()
     {
-        if(player.IsShiftClicked())
-        {
-            machine.ChangeState(player.dash);
-        }
-        else if(player.IsSpacePressed() && machine.curState != player.jump)
-        {
-            machine.ChangeState(player.jump);
-        }
-        else if(!player.IsShiftHold())
+        base.TransitionCheck();
+        if(!player.IsShiftHold())
         {
             if(player.IsMoving())
                 machine.ChangeState(player.walk);
